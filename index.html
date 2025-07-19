@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <title>JP's Astro Research</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f8f8f8;
+      text-align: center;
+    }
+
+    #frame {
+      width: 100vw;
+      height: 90vh;
+      border: none;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      background: #ddd;
+    }
+
+    button {
+      font-size: 18px;
+      margin: 0 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+      border: none;
+      background: #4CAF50;
+      color: white;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>📂 Jayaprakash's Astro website</h2>
+
+  <iframe id="frame" src="" loading="lazy"></iframe>
+
+  <div class="nav-buttons">
+    <button onclick="prevRepo()">⬅️ Previous</button>
+    <button onclick="nextRepo()">➡️ Next</button>
+  </div>
+
+  <script>
+    const repos = [
+      "https://jayaprakash3195.github.io/my-website/",
+      "https://jayaprakash3195.github.io/chart/",
+      "https://jayaprakash3195.github.io/chart2/",
+      "https://jayaprakash3195.github.io/chart3/"
+      "https://jayaprakash3195.github.io/vathai-vainasikam/",
+      "https://jayaprakash3195.github.io/dasa/",
+      "https://jayaprakash3195.github.io/age-dasa/",
+      "https://jayaprakash3195.github.io/laknadasaaa/",
+      
+      "https://jayaprakash3195.github.io/chart6/",
+      "https://jayaprakash3195.github.io/chart5/",
+      // Add more repositories here if needed
+    ];
+
+    let currentIndex = 0;
+
+    function loadRepo(index) {
+      document.getElementById("frame").src = repos[index];
+    }
+
+    function nextRepo() {
+      currentIndex = (currentIndex + 1) % repos.length;
+      loadRepo(currentIndex);
+    }
+
+    function prevRepo() {
+      currentIndex = (currentIndex - 1 + repos.length) % repos.length;
+      loadRepo(currentIndex);
+    }
+
+    // Load the first repo on page load
+    window.onload = () => loadRepo(currentIndex);
+  </script>
+</body>
+</html>
