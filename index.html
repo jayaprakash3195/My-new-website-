@@ -8,50 +8,64 @@
       margin: 0;
       font-family: sans-serif;
       background: #f8f8f8;
-      text-align: center;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: green;
+      padding: 10px 20px;
+    }
+
+    .navbar-title {
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-buttons button {
+      font-size: 16px;
+      padding: 8px 16px;
+      border: none;
+      background: #4CAF50;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .nav-buttons button:hover {
+      background-color: #45a049;
     }
 
     #frame {
       width: 100vw;
       height: 90vh;
       border: none;
-    }
-
-    .nav-buttons {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px;
-      background: #ddd;
-    }
-
-    button {
-      font-size: 18px;
-      margin: 0 10px;
-      padding: 10px 20px;
-      cursor: pointer;
-      border: none;
-      background: #4CAF50;
-      color: white;
-      border-radius: 5px;
-    }
-
-    button:hover {
-      background: #45a049;
+      display: block;
     }
   </style>
 </head>
 <body>
 
-  <h2>📂 Jayaprakash's Astro website</h2>
-
-  <iframe id="frame" src="" loading="lazy"></iframe>
-
-  <div class="nav-buttons">
-    <button onclick="prevRepo()">⬅️ Previous</button>
-    <button onclick="nextRepo()">➡️ Next</button>
+  <!-- Top Navbar -->
+  <div class="navbar">
+    <div class="navbar-title">🌙 JP's Astro Research</div>
+    <div class="nav-buttons">
+      <button onclick="prevRepo()">⬅️ Previous</button>
+      <button onclick="nextRepo()">➡️ Next</button>
+    </div>
   </div>
 
+  <!-- iFrame content -->
+  <iframe id="frame" src="" loading="lazy"></iframe>
+
+  <!-- Script -->
   <script>
     const repos = [
       "https://jayaprakash3195.github.io/my-website/",
@@ -62,8 +76,7 @@
       "https://jayaprakash3195.github.io/dasa/",
       "https://jayaprakash3195.github.io/age-dasa/",
       "https://jayaprakash3195.github.io/laknadasaaa/",
-      "https://jayaprakash3195.github.io/chart5/",
-      // Add more repositories here if needed
+      "https://jayaprakash3195.github.io/chart5/"
     ];
 
     let currentIndex = 0;
@@ -82,7 +95,6 @@
       loadRepo(currentIndex);
     }
 
-    // Load the first repo on page load
     window.onload = () => loadRepo(currentIndex);
   </script>
 </body>
